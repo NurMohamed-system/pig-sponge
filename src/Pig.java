@@ -26,25 +26,47 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
-    }
+    
+        String[] words = sentence.split(" ");
+        String result = "";
+
+       for (String word : words) {
+            result += pigCount(word);
+            result += " ";
+
+       }
+
+       result = result.substring(0, result.length() -1);
+       return result;
+    }   
 
 
-
-
-
-
-
-
-
-    // Method to help with testing, you do not need to read this.
-    public static void assertEqual(int testNumber, String actual, String expected) {
-        if (!expected.equals(actual)) {
-        System.out.println("Test " + testNumber + " failed! Expected: '" + expected + "', but got: '" + actual + "'");
-        } else {
-        System.out.println("Test " + testNumber + " passed!");
+    private static String pigCount(String word) {
+        if (word.charAt(0) == 'a' || word.charAt(0) == 'e' || word.charAt(0) == 'i'
+         || word.charAt(0) == 'o' || word.charAt(0) == 'u') {
+            return word; 
         }
+        
+        char letter = word.charAt(0);
+        word = word.substring(1);
+        word = word + letter;
+
+        return word + "ay";
+        
     }
+    
+    
+     
+            
+   // Method to help with testing, you do not need to read this.
+   public static void assertEqual(int testNumber, String actual, String expected) {
+    if (!expected.equals(actual)) {
+      System.out.println("Test " + testNumber + " failed! Expected: '" + expected + "', but got: '" + actual + "'");
+    } else {
+      System.out.println("Test " + testNumber + " passed!");
     }
+  }
+}              
+
   
   

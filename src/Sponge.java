@@ -31,40 +31,70 @@ public class Sponge {
     assertEqual(6, spongeCase("e"), "e");
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   // Implement your solution here!
   public static String spongeCase(String sentence) {
-    String[] words = sentence.split("");
+    String[] words = sentence.split(" ");
+    
     String result = "";
-    for (String word: words) {
-      result += spongeSingleWord(word);
+
+
+    for (String word : words) {
+      
+      result += spongeWall(word);
       result += " ";
     }
-   
-    result = result.substring(0, result.length() -1);
-   
+
+    result = result.substring(0, result.length() - 1);
+
     return result;
   }
 
-  private static String spongeSingleWord(String word) {
+  private static String spongeWall(String word) {
     String newWord = "";
+
     boolean lower = true;
 
     for (char letter : word.toCharArray()) {
       if (lower) {
-        // Add the lowercase version of the letter
+     
         newWord += Character.toLowerCase(letter);
       } else {
-        // Add the uppercase version of the letter
+       
         newWord += Character.toUpperCase(letter);
       }
-      // Flip the toggle
+   
       lower = !lower;
     }
 
     return newWord;
   }
 
-
+  
   
 
 
